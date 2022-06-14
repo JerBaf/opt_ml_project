@@ -14,7 +14,8 @@ class VGG(nn.Module):
         out = self.features(x)
         out = out.view(out.size(0), -1)
         out = self.classifier(out)
-        out = nn.Softmax(out)
+        softmax_output = nn.Softmax()
+        out = softmax_output(out)
         return out
 
     def _make_layers(self, in_channels_nb=3):
